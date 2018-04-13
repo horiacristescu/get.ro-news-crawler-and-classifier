@@ -23,18 +23,24 @@ We have built a web tool to visualize word clouds by similarity and help us defi
 
 ## Topic definitions
 
-    - topic definitions
-        - how I built the topic list -> clustering
-        - tool to edit topics
-            - problems with topic overlap
-        - finding "strong words"
-    - document embeddings
-        - attention schemes - tf-idf, word similarity based
-        - combining vocabulary check with document embeddings
-    - ranking
-        - finding trends by comparing word distributions
+Defining topics is a difficult problem. One way to go about it is to have a dataset with 100..1000 articles classified by hand to each topic. Unfortunately such a dataset is hard to come by. Supervised learning is not easy to apply in this situation. So we turn to unsupervised learning instead. We build word vectors on a large corpus of text (about 1 billion words). Training takes a few hours and results vary depending on window size, algorithm used and corpus size. The best results so far come from doc2vecC (Document to vector through corruption). In doc2vecC the word is modeled in the context of the document (and local window). The corruption part refers to applying dropout when averaging vectors.
+
+If we rely on word vectors we can specify a topic by a single word. This works well for most topics, but for some it is necessary to average the embeddings of a few terms (<50) related to the topic. I have used Wikipedia to extact lists of topics, but some topics might not be on Wiki, so we use another method: we cluster the word vectors and inspect clusters instead of individual words. While there are 1 million words in our vocabulary, we can reduce that to 1000-10000 clusters and go by hand and name them one by one. By doing this we make sure there are no missed topics.
+
+## Document embeddings
+
+In order to compute the embedding vector of a document there are many techniques. We start from word vectors and make a weighted sum of their embeddings. It is essential at this point to maintain a list of stopwords which are not topically informative. In order to build such a list we measure which words appear all over the topic space (compute entropy of the distribution of probability of word to all the topics). Words with low entropy are stopwords, so we select them at a cutoff point.
+
+Another way to wheigh words is to use tf-idf. It works well on average but is surpassed by better methods. We have experimented with many "attention" schemes. One of the best is to compute the similarity of each pair of words in a document, treshold at a certain level and then average. The words that have more related words in the same document come on top. The tf-idf method by contrast is not topic specific, it just boosts rare words.
+
+## Ranking news
+
+We want to emphasize topics that are unusually strong in the last 24 hours, so we build an average distribution of keywords over a large timespan (a year) and compare it to the distribution of keywords in the last 24 hours. Some keywords appear more often than average, other less. Then we cluster the words that appear more often and identify a short list of clusters. We rank each article by similarity to the interest clusters. This would make sure than on an election day we boost election news and on an holliday we boost holliday news.
+
+## Improving topic classification with "strong words"
+
+We observe that sometimes word vectors can be fuzzy and not discriminate well between close topics. We tried to use large embeddins size but it doesn't help. Instead, we select a few "strong words" for each topic, including the topic name, and compute a simple word based topic score. In order to compute strong words related to a topic we use Label Prop where we feed in a bunch of related topics and words and it assigns each word to a topic.
 
 ## Rendering the website
-    - inverted index & document vectors
-        - divided by hour, rebuiding only the last period
-    - generating the website
+
+In order to render the website we use a python framework (Klein) and ReactJS-like organisation for the HTML. We divide the news into individual indexes by hour we we can roll out old news without having to delete them from a central database. The hourly news databases are built on an incremental basis so we only need to parse the last hour and update it regularly (every minute). The backend also creates an inverted index of the text so we can do keyword search.
