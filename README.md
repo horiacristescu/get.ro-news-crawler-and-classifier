@@ -44,3 +44,14 @@ We observe that sometimes word vectors can be fuzzy and not discriminate well be
 ## Rendering the website
 
 In order to render the website we use a python framework (Klein) and ReactJS-like organisation for the HTML. We divide the news into individual indexes by hour we we can roll out old news without having to delete them from a central database. The hourly news databases are built on an incremental basis so we only need to parse the last hour and update it regularly (every minute). The backend also creates an inverted index of the text so we can do keyword search.
+
+
+Resources:
+- algorithm to extract articles from HTML pages
+- stopword list
+- cleaned up dictionary with entities
+- 300d embeddings for the whole vocabulary
+- a library for working with word and document vectors, based on the fast similarity search library "annoy"
+- a list of hand-curated topics and their "strong words"
+- a tool to browse the vector space
+- an inverted index and list of computed document vecors for each article, divided by hour
