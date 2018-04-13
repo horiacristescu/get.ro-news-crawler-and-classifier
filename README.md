@@ -1,2 +1,2 @@
-# get.ro-news-crawler-and-classifier
+# get.ro - A news crawler and classifier
 'Google News' like news crawler and classifier with web front-end
