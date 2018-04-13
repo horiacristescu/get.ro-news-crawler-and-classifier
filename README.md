@@ -4,7 +4,7 @@ This project aims to replicate some of the functionality of Google News. We craw
 
 ## News crawler
 
-The first stage of our system is the crawler. The crawler has to start somewhere so we build a list of newspaper homepage urls. In order to do that we shamelessly exploit other projects who index the Romanian newssites. Another method is to query Google with keywords that only appear in very recent news (such as names of people mentioned for the first time in the last 24 hours), identifying newspapers.
+The first stage of our system is the crawler. The crawler has to start somewhere so we build a list of newspaper homepage URLs. In order to do that we shamelessly exploit other projects who index the Romanian newssites. Another method is to query Google with keywords that only appear in very recent news (such as names of people mentioned for the first time in the last 24 hours), identifying newspapers.
 
 We crawl the homepages every hour and extract all the links, including from the RSS feed. We compare the links with a list of known older articles and skip those. Since the news homepages change all the time, in a few days we are able to filter out old news from recent ones.
 
