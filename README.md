@@ -8,7 +8,7 @@ The first stage of our system is the crawler. The crawler has to start somewhere
 
 We crawl the homepages every hour and extract all the links, including from the RSS feed. We compare the links with a list of known older articles and skip those. Since the news homepages change all the time, in a few days we are able to filter out old news from recent ones.
 
-Now that we have the HTML of news articles, we need to extract the title, text and main image. In order to do that we keep a database of all phrases ever met on the same newspaper, and filter out paragraphs that have been seed before. This method works well, but more recently there have been other methods that rank text inside HTML pages based on heuristics, they work well too and don't require the large database of past phrases.
+Now that we have the HTML of news articles, we need to extract the title, text and main image. In order to do that we keep a database of all phrases ever met on the same newspaper, and filter out paragraphs that have been seen before. This method works well, but more recently there have been other methods that rank text inside HTML pages based on heuristics, they work well too and don't require the large database of past phrases.
 
 ## Classifying news
 
