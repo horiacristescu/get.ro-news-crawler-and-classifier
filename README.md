@@ -31,7 +31,7 @@ If we rely on word vectors we can specify a topic by a single word. This works w
 
 In order to compute the embedding vector of a document there are many techniques. We start from word vectors and make a weighted sum of their embeddings. It is essential at this point to maintain a list of stopwords which are not topically informative. In order to build such a list we measure which words appear all over the topic space (compute entropy of the distribution of probability of word to all the topics). Words with low entropy are stopwords, so we select them at a cutoff point.
 
-Another way to wheigh words is to use tf-idf. It works well on average but is surpassed by better methods. We have experimented with many "attention" schemes. One of the best is to compute the similarity of each pair of words in a document, treshold at a certain level and then average. The words that have more related words in the same document come on top. The tf-idf method by contrast is not topic specific, it just boosts rare words.
+Another way to weigh words is to use tf-idf. It works well on average but is surpassed by better methods. We have experimented with many "attention" schemes. One of the best is to compute the similarity of each pair of words in a document, treshold at a certain level and then average. The words that have more related words in the same document come on top. The tf-idf method by contrast is not topic specific, it just boosts rare words.
 
 ## Ranking news
 
