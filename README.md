@@ -21,7 +21,7 @@ In order to improve the efficiency of this method we treat collocations and name
 
 We have built a web tool to visualize word clouds by similarity and help us define topics in an interactive way. Browsing the embedding space was a unique experience. From each concept many directions spread out, it's as if you're walking a city where each intersection has 20 roads and they connect in hyperspace, permitting shortcuts. Every word is close to every other word, just a few hops away. Usually when the similarity score of two words is above 0.35 (cosine distance) then they are related.
 
-Demo: [Word Vectors Tool](http://get.ro:5001/) displaying a Romanian vocabulary of 900K words.
+## Demo: [Word Vectors Tool](http://get.ro:5001/) displaying a Romanian vocabulary of 900K words.
 
 To compute the topics of a document we calculate similarity scores of the document vector to all the topic vectors and rank them in descending order. We only take the first 1-3 topics. Doing classification by cosine distance is great for unbalanced topics. We can also define ad-hoc topics from documents (the document vector) and find similar articles. This proved to be a fun experience - browsing news by hopping from one article to other similar articles.
 
