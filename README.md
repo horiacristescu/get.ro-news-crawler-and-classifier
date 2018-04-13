@@ -39,7 +39,7 @@ We want to emphasize topics that are unusually strong in the last 24 hours, so w
 
 ## Improving topic classification with "strong words"
 
-We observe that sometimes word vectors can be fuzzy and not discriminate well between close topics. We tried to use larger embeddins size but it doesn't help. Instead, we select a few "strong words" for each topic, including the topic name, and compute a simple word based topic score. In order to compute strong words related to a topic we use Label Prop where we feed in a bunch of related topics and words, and it assigns each word to a topic. Label Prop puts more importance on the non-linearity of the embedding manifold.
+We observe that sometimes word vectors can be fuzzy and not discriminate well between close topics. We tried to use a larger embedding size but it doesn't help. Instead, we select a few "strong words" for each topic, including the topic name, and compute a simple word based topic score. In order to compute strong words related to a topic we use Label Prop where we feed in a bunch of related topics and words, and it assigns each word to a topic. Label Prop puts more importance on the non-linearity of the embedding manifold.
 
 ## Rendering the website
 
