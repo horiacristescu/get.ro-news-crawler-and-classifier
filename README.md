@@ -33,13 +33,13 @@ In order to compute the embedding vector of a document there are many techniques
 
 Another way to weigh words is to use tf-idf. It works well on average but is surpassed by better methods. We have experimented with many "attention" schemes. One of the best is to compute the similarity of each pair of words in a document, threshold at a certain level and then average. The words that have more related words in the same document come on top. The tf-idf method by contrast is not topic specific, it just boosts rare words.
 
-## Ranking news
-
-We want to emphasize topics that are unusually strong in the last 24 hours, so we build an average distribution of keywords over a large timespan (a year) and compare it to the distribution of keywords in the last 24 hours. Some keywords appear more often than average, others less. Then we cluster the words that appear more often and identify a short list of clusters. We rank each article by similarity to the interest clusters. This would make sure than on an election day we boost election news and on a Christmas we boost Christmas news.
-
 ## Improving topic classification with "strong words"
 
 We observe that sometimes word vectors can be fuzzy and not discriminate well between close topics. We tried to use a larger embedding size but it doesn't help. Instead, we select a few "strong words" for each topic, including the topic name, and compute a simple word based topic score. In order to compute strong words related to a topic we use Label Prop where we feed in a bunch of related topics and words, and it assigns each word to a topic. Label Prop puts more importance on the non-linearity of the embedding manifold.
+
+## Ranking news
+
+We want to emphasize topics that are unusually strong in the last 24 hours, so we build an average distribution of keywords over a large timespan (a year) and compare it to the distribution of keywords in the last 24 hours. Some keywords appear more often than average, others less. Then we cluster the words that appear more often and identify a short list of clusters. We rank each article by similarity to the interest clusters. This would make sure than on an election day we boost election news and on a Christmas we boost Christmas news.
 
 ## Rendering the website
 
