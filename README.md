@@ -35,7 +35,7 @@ Another way to weigh words is to use tf-idf. It works well on average but is sur
 
 ## Ranking news
 
-We want to emphasize topics that are unusually strong in the last 24 hours, so we build an average distribution of keywords over a large timespan (a year) and compare it to the distribution of keywords in the last 24 hours. Some keywords appear more often than average, other less. Then we cluster the words that appear more often and identify a short list of clusters. We rank each article by similarity to the interest clusters. This would make sure than on an election day we boost election news and on a Christmas we boost Christmas news.
+We want to emphasize topics that are unusually strong in the last 24 hours, so we build an average distribution of keywords over a large timespan (a year) and compare it to the distribution of keywords in the last 24 hours. Some keywords appear more often than average, others less. Then we cluster the words that appear more often and identify a short list of clusters. We rank each article by similarity to the interest clusters. This would make sure than on an election day we boost election news and on a Christmas we boost Christmas news.
 
 ## Improving topic classification with "strong words"
 
