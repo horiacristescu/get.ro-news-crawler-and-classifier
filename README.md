@@ -43,13 +43,14 @@ We want to emphasize topics that are unusually strong in the last 24 hours, so w
 
 ## Rendering the website
 
-In order to render the website we use a python framework (Klein) and ReactJS-like organisation for the HTML. We divide the news into individual indexes by hour we we can roll out old news without having to delete them from a central database. The hourly news databases are built on an incremental basis so we only need to parse the last hour and update it regularly (every minute). The backend also creates an inverted index of the text so we can do keyword search.
+In order to render the website we use a python framework (Klein) and ReactJS-like organisation for the HTML. We divide the news into individual indexes by hour so we can roll out old news without having to delete them from a central database. The hourly news databases are built on an incremental basis so we only need to parse the last hour and update it regularly (every minute). The backend also creates an inverted index of the text so we can do keyword search. Keeping an updating inverted index in one place would have been much more difficult than dividing it by hour.
 
 
 Resources:
 - algorithm to extract articles from HTML pages
 - stopword list
 - cleaned up dictionary with entities
+- list of entropy-based collocations
 - 300d embeddings for the whole vocabulary
 - a library for working with word and document vectors, based on the fast similarity search library "annoy"
 - a list of hand-curated topics and their "strong words"
