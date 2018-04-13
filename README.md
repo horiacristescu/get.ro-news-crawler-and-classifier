@@ -19,9 +19,10 @@ We built word embeddings using many available tools - starting with [word2vec](h
 
 In order to improve the efficiency of this method we treat collocations and names like single tokens and learn vectors for them like we learn all the rest of the vocabulary. Wikipedia was of invaluable help to us here (especially [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page)). We simply matched the list of article names to ngrams in a huge corpus of news and only retain those that appear above a certain threshold. This way we have entity names like "Albert Einstein" and multi-word units like "deep learning". We also used entropy based filtering to identify collocations from the corpus.
 
-We have built a web tool to visualize word clouds by similarity and help us define topics in an interactive way. Browsing the embedding space was a unique experience. From each concept many directions spread out, it's as if you're walking a city where each intersection has 20 roads and they connect in hyperspace, permitting shortcuts. Every word is close to every other word, just a few hops away. Usually when the similarity score of two words is above 0.35 (cosine distance) then they are related.
+## Demo: [Word Vectors Tool](http://get.ro:5001/) 
+displaying a Romanian vocabulary of 900K words.
 
-## Demo: [Word Vectors Tool](http://get.ro:5001/) displaying a Romanian vocabulary of 900K words.
+We have built a web tool to visualize word clouds by similarity and help us define topics in an interactive way. Browsing the embedding space was a unique experience. From each concept many directions spread out, it's as if you're walking a city where each intersection has 20 roads and they connect in hyperspace, permitting shortcuts. Every word is close to every other word, just a few hops away. Usually when the similarity score of two words is above 0.35 (cosine distance) then they are related.
 
 To compute the topics of a document we calculate similarity scores of the document vector to all the topic vectors and rank them in descending order. We only take the first 1-3 topics. Doing classification by cosine distance is great for unbalanced topics. We can also define ad-hoc topics from documents (the document vector) and find similar articles. This proved to be a fun experience - browsing news by hopping from one article to other similar articles.
 
