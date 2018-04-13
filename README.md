@@ -54,4 +54,6 @@ Resources:
 - a library for working with word and document vectors, based on the fast similarity search library "annoy"
 - a list of hand-curated topics and their "strong words"
 - a tool to browse the vector space
-- an inverted index and list of computed document vecors for each article, divided by hour
+- an inverted index and list of computed document vectors for each article, divided by hour
+
+(code and data to come)
