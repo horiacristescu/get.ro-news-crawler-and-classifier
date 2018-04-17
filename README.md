@@ -52,7 +52,7 @@ In order to render the website we use a python framework (Klein) and ReactJS-lik
 
 Resources:
 - algorithm to extract articles from HTML pages
-- stopword list
+- [stopword list](stopwords.txt)
 - [cleaned up dictionary with entities](entities.txt)
 - list of entropy-based collocations
 - 300d embeddings for the whole vocabulary
