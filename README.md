@@ -57,7 +57,7 @@ Resources:
 - cleaned up dictionary with entities
 - list of entropy-based collocations
 - 300d embeddings for the whole vocabulary
-- a library for working with word and document vectors, based on the fast similarity search library "annoy"
+- [a library for working with word and document vectors](vectors.py), based on the fast similarity search library "annoy"
 - a list of hand-curated topics and their "strong words"
 - a tool to browse the vector space
 - an inverted index and list of computed document vectors for each article, divided by hour
