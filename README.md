@@ -58,7 +58,7 @@ Resources:
 - 300d embeddings for the whole vocabulary
 - [a library for working with word and document vectors](vectors.py), based on the fast similarity search library "annoy"
 - a list of hand-curated topics and their "strong words"
-- a tool to browse the vector space
+- [a tool to browse the vector space](http://get.ro:5001/)
 - an inverted index and list of computed document vectors for each article, divided by hour
 
 (code and data to come)
