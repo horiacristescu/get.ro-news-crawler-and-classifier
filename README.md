@@ -1,4 +1,4 @@
-# (GET.RO)[http://get.ro/] - A news crawler and classifier, based on word embeddings
+# [GET.RO](http://get.ro/) - A news crawler and classifier, based on word embeddings
 
 
 This project aims to replicate some of the functionality of Google News. We crawl thousands of sources, collect the new articles and extract the text and images. But by doing that, we end up with a huge mass of tens of thousands of news items every day which is impossible to browse by hand. So we must build a news classifier to split the firehose of news into manageable streams. And since it's possible, why classify just in 10-20 topics when we could have thousands? 
